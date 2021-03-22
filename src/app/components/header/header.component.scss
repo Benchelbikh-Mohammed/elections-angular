@@ -10,6 +10,7 @@
     height: 130px;
     border-radius: 100%;
     border: 2px solid var(--primary);
+    box-shadow: rgba(0,0,0,0.2) 5px 5px 20px;
   }
 
   .userName{
@@ -25,12 +26,17 @@
       align-items: center;
       width: 100%;
       padding: .8rem 3rem;
+      transition: .5s;
       mat-icon{
         margin-right: 2.1rem;
         color: var(--icons);
+        transition: .5s;
       }
       &:hover, &:active{
         background-color: var(--primary);
+        mat-icon{
+          color: gray;
+        }
       }
     }
   }

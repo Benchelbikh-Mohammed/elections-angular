@@ -14,6 +14,9 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: var(--primary);
+    display: -ms-inline-grid;
+    display: -moz-inline-grid;
+    display: -webkit-inline-grid;
 }
 body { 
     margin: 0;
