@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PartiePolComponent } from './components/partie-pol/partie-pol.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DemoMaterialModule } from './material-module';
-import { ResultatComponent } from './resultat/resultat.component';
+import { ResultatComponent } from './components/resultat/resultat.component';
 
 @NgModule({
   declarations: [
