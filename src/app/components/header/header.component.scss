@@ -1,3 +1,18 @@
-.example-spacer {
-  flex: 1 1 auto;
+.navigationContainer{
+  ul{
+    list-style: none;
+    li{
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      padding: .8rem 3rem;
+      mat-icon{
+        margin-right: 2.1rem;
+        color: var(--icons);
+      }
+      &:hover, &:active{
+        background-color: var(--primary);
+      }
+    }
+  }
 }
