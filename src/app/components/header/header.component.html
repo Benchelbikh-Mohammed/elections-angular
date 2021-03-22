@@ -1,18 +1,22 @@
 <div class="userContainer">
-    <div class="userPic"></div>
-    <div class="userName"></div>
+    <div class="userPic">
+      <!-- src = "{{user.photoUrl}}" -->
+      <img src="">
+    </div>
+    <!-- {{user.name}} -->
+    <div class="userName">Abdellah</div>
 </div>
 <div class="navigationContainer">
   <ul>
-    <li>
+    <li [routerLink] = "'partie-pol'">
       <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
       Link Name
     </li>
-    <li>
+    <li [routerLink] = "'partie-pol'">
       <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
       Link Name
     </li>
-    <li>
+    <li [routerLink] = "'partie-pol'">
       <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
       Link Name
     </li>

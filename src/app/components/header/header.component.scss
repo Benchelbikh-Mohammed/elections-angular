@@ -1,3 +1,22 @@
+.userContainer{
+  margin: 5rem 0 3rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .userPic{
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    border: 2px solid var(--primary);
+  }
+
+  .userName{
+    margin: 1.8rem 0;
+  }
+}
+
 .navigationContainer{
   ul{
     list-style: none;
