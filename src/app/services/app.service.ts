@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import Citoyen from '../models/Citoyen';
-import PartiePol from '../models/PartiePol';
+import Citoyen from '../models/citoyen.model';
+import PartiePol from '../models/partiePol.model';
 
 @Injectable({
   providedIn: 'root'

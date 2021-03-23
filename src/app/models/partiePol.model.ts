@@ -1,4 +1,4 @@
-import Citoyen from "./Citoyen";
+import Citoyen from "./citoyen.model";
 
 export default class PartiePol {
     private _nom: string;

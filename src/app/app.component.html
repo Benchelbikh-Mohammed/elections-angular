@@ -1,2 +1,12 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+
+<div *ngIf="auth.user$ | async as user; else login">
+    {{user | json}}
+    <hr>
+    <button (click)="auth.signout()">Signout</button>
+</div>
+
+<ng-template #login>
+    <button (click)="auth.googleSignIn()">signIn</button>
+</ng-template>

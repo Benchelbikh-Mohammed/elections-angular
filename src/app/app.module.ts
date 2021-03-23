@@ -8,6 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { PartiePolComponent } from './components/partie-pol/partie-pol.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DemoMaterialModule } from './material-module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+const config = {
+  apiKey: "AIzaSyDtn81w_9w0ZUGKFcixgc-WxY-Cj0Ea9Yc",
+  authDomain: "angular-election-app.firebaseapp.com",
+  projectId: "angular-election-app",
+  storageBucket: "angular-election-app.appspot.com",
+  messagingSenderId: "414031097723",
+  appId: "1:414031097723:web:cc4e0296e56e97b39497de",
+  measurementId: "G-RDVPZZRJV7"
+};
 
 @NgModule({
   declarations: [
@@ -16,6 +29,9 @@ import { DemoMaterialModule } from './material-module';
     HeaderComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     DemoMaterialModule,
     BrowserModule,
     BrowserAnimationsModule,

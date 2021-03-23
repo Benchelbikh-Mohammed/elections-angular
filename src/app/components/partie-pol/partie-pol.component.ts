@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import PartiePol from 'src/app/models/PartiePol';
+import PartiePol from 'src/app/models/partiePol.model';
 import { AppService } from 'src/app/services/app.service';
 
 @Component({
