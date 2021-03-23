@@ -11,6 +11,7 @@ import { DemoMaterialModule } from './material-module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ResultatComponent } from './components/resultat/resultat.component';
 
 const config = {
   apiKey: "AIzaSyDtn81w_9w0ZUGKFcixgc-WxY-Cj0Ea9Yc",
@@ -26,7 +27,8 @@ const config = {
   declarations: [
     AppComponent,
     PartiePolComponent,
-    HeaderComponent
+    HeaderComponent,
+    ResultatComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),
