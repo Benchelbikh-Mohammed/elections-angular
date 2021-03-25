@@ -8,8 +8,9 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'election-app';
+  showFiller = false;
 
-  constructor(public auth: AuthService) {
+  constructor() {
 
   }
 }

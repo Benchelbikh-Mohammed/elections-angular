@@ -1,11 +1,28 @@
-<div class="userContainer">
-    <div class="userPic">
-      <!-- src = "{{user.photoUrl}}" -->
-      <img src="">
-    </div>
-    <!-- {{user.name}} -->
-    <div class="userName">Abdellah</div>
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+        <!-- template will replace this div -->
 </div>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+    <h3>Howdy, GUEST</h3>
+    <p>Login to get started...</p>
+    
+    <button (click)="auth.googleSignin()">
+        <i class="fa fa-google"></i> Connect Google
+    </button>
+
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <div *ngIf="auth.user$ | async as user" class="userContainer">
+    <img  [src]="user.photoURL" alt="userImg">
+    <h3 class="userName">Howdy, {{ user.displayName }}</h3>
+    <button mat-stroked-button (click)="auth.signOut()">Logout</button>
+  </div>
+</ng-template>
+
 <div class="navigationContainer">
   <ul>
     <li [routerLink] = "'resultat'">
@@ -13,12 +30,12 @@
       Resultat
     </li>
     <li [routerLink] = "'partie-pol'">
-      <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-      Link Name
+      <mat-icon aria-hidden="false" aria-label="Example home icon">account_balance</mat-icon>
+      parties politiques
     </li>
-    <li [routerLink] = "'partie-pol'">
-      <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-      Link Name
+    <li [routerLink] = "'vote'">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">label</mat-icon>
+      vote
     </li>
   </ul>
 </div>

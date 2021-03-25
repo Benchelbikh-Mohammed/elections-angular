@@ -43,15 +43,40 @@ export class AuthService {
       uid,
       email,
       displayName,
-      photoURL
+      photoURL,
+      roles: {
+        subscriber: true,
+      }
     };
 
     return userRef.set(data, { merge: true });
   }
 
-  async signout() {
+  async signOut() {
     await this.afAuth.signOut();
     return this.router.navigate(['/']);
+  }
+
+  canRead(user: User): boolean {
+    let allowedRoles = ['subscriber', 'admin'];
+    return this.checkAuthorization(user, allowedRoles);
+  }
+
+  canCrud(user: User): boolean {
+    let allowedRoles = ['admin'];
+    return this.checkAuthorization(user, allowedRoles);
+  }
+
+
+  private checkAuthorization(user: User, allowedRoles: string[]): boolean {
+    if (!user) return false;
+
+    for (const role of allowedRoles)
+      if (user.roles[role])
+        return true;
+
+
+    return false;
   }
 
 }

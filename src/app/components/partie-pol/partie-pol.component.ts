@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import PartiePol from 'src/app/models/partiePol.model';
 import { AppService } from 'src/app/services/app.service';
 
@@ -9,13 +10,13 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class PartiePolComponent implements OnInit {
 
-  partiePol: Array<PartiePol>
+  partiePol: AngularFirestoreCollection<PartiePol>
 
   constructor(private service: AppService) { }
 
   ngOnInit(): void {
-    this.partiePol = this.service.partiePol;
-    console.log(this.partiePol)
+    this.service.addPartie(new PartiePol("first partie"));
+    // console.log(this.partiePol)
   }
 
 }

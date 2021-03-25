@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ResultatComponent } from './components/resultat/resultat.component';
+import { VoteComponent } from './components/vote/vote.component';
 
 const config = {
   apiKey: "AIzaSyDtn81w_9w0ZUGKFcixgc-WxY-Cj0Ea9Yc",
@@ -28,7 +29,8 @@ const config = {
     AppComponent,
     PartiePolComponent,
     HeaderComponent,
-    ResultatComponent
+    ResultatComponent,
+    VoteComponent
   ],
   imports: [
     AngularFireModule.initializeApp(config),

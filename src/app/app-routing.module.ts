@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PartiePolComponent } from './components/partie-pol/partie-pol.component';
 import { ResultatComponent } from './components/resultat/resultat.component';
+import { VoteComponent } from './components/vote/vote.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
@@ -11,8 +13,12 @@ const routes: Routes = [
   {
     path: "resultat", component: ResultatComponent
   },
+
   {
-    path: "", redirectTo: "partie-pol", pathMatch: "full"
+    path: "vote", component: VoteComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: "", redirectTo: "resultat", pathMatch: "full"
   },
 ];
 

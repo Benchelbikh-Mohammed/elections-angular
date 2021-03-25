@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import Citoyen from '../models/citoyen.model';
 import PartiePol from '../models/partiePol.model';
 
@@ -8,39 +10,45 @@ import PartiePol from '../models/partiePol.model';
 export class AppService {
 
 
-  private _partiesPol: Array<PartiePol>
+  private _partiesPol: AngularFirestoreCollection<PartiePol>
+  parties: Observable<PartiePol[]>;
 
-  constructor() {
-    this._partiesPol = Array.from({ length: 5 }, (_, i) => new PartiePol(`${i}`, i.toString().repeat(10)))
+  constructor(private afs: AngularFirestore) {
+    this._partiesPol = afs.collection<PartiePol>('parties');
+    this.parties = this._partiesPol.valueChanges();
   }
 
   addPartie(partie: PartiePol) {
-    if (this._partiesPol.find(e => e.nom == partie.nom) != null)
-      return;
 
-    this._partiesPol.push(partie);
+
+    this.afs.collection(`parties`, ref => ref.where('nom', "==", partie.nom)).snapshotChanges().subscribe(res => {
+      if (res.length != 0) {
+        this._partiesPol.add(partie);
+      }
+
+    });
   }
 
   deletePartie(nomPartie: string) {
-    let index = this._partiesPol.findIndex(e => e.nom = nomPartie);
-    this._partiesPol.splice(index, 1);
+    // let index = this._partiesPol.findIndex(e => e.nom = nomPartie);
+    // this._partiesPol.splice(index, 1);
   }
 
 
-  public get partiePol(): Array<PartiePol> {
+  public get partiePol(): AngularFirestoreCollection<PartiePol> {
     return this._partiesPol;
   }
 
   vote(citoyen: Citoyen, nomPartie: string) {
-    let partie: PartiePol;
-    this._partiesPol.forEach(e => {
-      if (e.nom == nomPartie) partie = e;
-      if (e.citoyens.find(c => c.nom == citoyen.nom) != null) {
-        return;
-      }
-    })
+    // let partie: PartiePol;
+    // this._partiesPol.forEach(e => {
+    //   if (e.nom == nomPartie) partie = e;
+    //   if (e.citoyens.find(c => c.nom == citoyen.nom) != null) {
+    //     return;
+    //   }
+    // })
 
-    partie.citoyens.push(citoyen);
+    // partie.citoyens.push(citoyen);
   }
 
 }
