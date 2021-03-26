@@ -21,4 +21,12 @@
 .example-sidenav {
   padding: 20px 0;
   width:25vw;
+
+  @media (max-width: 1400px) {
+    width:35vw
+  }
+
+  @media (max-width: 500px) {
+    width:75vw
+  }
 }

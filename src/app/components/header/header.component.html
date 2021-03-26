@@ -3,15 +3,15 @@
 </div>
 
 <!-- User NOT logged in -->
-<ng-template #guest>
+<div class="guestTemplate" #guest>
     <h3>Howdy, GUEST</h3>
     <p>Login to get started...</p>
     
-    <button (click)="auth.googleSignin()">
+    <button mat-button class="loginBtn" (click)="auth.googleSignin()">
         <i class="fa fa-google"></i> Connect Google
     </button>
 
-</ng-template>
+  </div>
 
 
 <!-- User logged in -->
@@ -33,7 +33,7 @@
       <mat-icon aria-hidden="false" aria-label="Example home icon">account_balance</mat-icon>
       parties politiques
     </li>
-    <li [routerLink] = "'vote'">
+    <li *ngIf = "auth.user$ | async" [routerLink] = "'vote'">
       <mat-icon aria-hidden="false" aria-label="Example home icon">label</mat-icon>
       vote
     </li>
