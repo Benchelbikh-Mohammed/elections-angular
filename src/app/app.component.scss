@@ -9,9 +9,16 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+
+  button{
+    background-color: rgb(202, 200, 200);
+    position: absolute;
+    top: .5%;
+    left: .5%;
+  }
 }
 
 .example-sidenav {
-  padding: 20px;
+  padding: 20px 0;
   width:25vw;
 }

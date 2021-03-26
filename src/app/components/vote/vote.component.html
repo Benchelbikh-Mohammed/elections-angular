@@ -1,1 +1,23 @@
-<p>vote works!</p>
+<form class="example-form">
+    <!-- "Nom" and "Prenom" will be provided from the auth :) -->
+
+    <mat-form-field class="example-full-width">
+        <mat-label>CIN</mat-label>
+        <input type="text" matInput [formControl]="cinChecker" [errorStateMatcher]="matcher"
+               placeholder="Ex.UC15554">
+        <mat-hint>Required Field</mat-hint>
+        <mat-error *ngIf="cinChecker.hasError('required')">
+          CIN is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <!-- Gonna make this reqiured later on -->
+      <mat-form-field appearance="fill">
+        <mat-label>Parties</mat-label>
+        <mat-select>
+          <mat-option >
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</form>

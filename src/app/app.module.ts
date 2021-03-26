@@ -13,6 +13,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ResultatComponent } from './components/resultat/resultat.component';
 import { VoteComponent } from './components/vote/vote.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const config = {
   apiKey: "AIzaSyDtn81w_9w0ZUGKFcixgc-WxY-Cj0Ea9Yc",
@@ -39,6 +40,7 @@ const config = {
     DemoMaterialModule,
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [AppService],
